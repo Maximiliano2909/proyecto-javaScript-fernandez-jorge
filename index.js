@@ -1,74 +1,87 @@
-class Tarjeta{
-    constructor( nombre, id, cuota12, cuota24, cuota36) {
-        this.nombre = nombre
-        this.id = id
-        this.cuota12 = cuota12
-        this.cuota24 = cuota24
-        this.cuota36 = cuota36
 
+let eleccion= +prompt("Elige una tarjeta : 1-SantanderVisa 2-MasterCard 3-AmericanExpress ")
+let monto = +prompt('Elige el monto de la compra')
+let SantanderVisa = 1
+let MasterCard = 2;
+let AmericanExpress = 3
+
+// prompt('La tarjeta elegida es :'+ eleccion)
+
+if (eleccion ===1){
+    alert('La tarjeta elegida es Santander Visa')
+
+    let cuotas = +prompt('En cuantas cuotas quiere operar? : 12 - 24 -36 ')
+    if (cuotas ===12){
+        calcularInteres(1)
+     alert('El interés en 12 cuotas le queda en : $'+ monto + ' por mes')
+
+    } else if (cuotas === 24) {
+        calcularInteres(1);
+        alert('El interés en 24 cuotas le queda en : $ '+ monto + ' por mes')
+    } else if (cuotas === 36) {
+        calcularInteres(1);
+        alert('El interés en 36 cuotas le queda en : $ '+ monto + ' por mes')
+    } else {
+        alert("El numero seleccionado no es correcto")
+    }
+   
+}else if (eleccion===2) {
+    alert('La tarjeta elegida es MasterCard')
+    let cuotas = +prompt('En cuantas cuotas quiere operar? : 12 - 24 -36 ')
+    if (cuotas ===12){
+        calcularInteres(2)
+     alert('El interés en 12 cuotas le queda en : $'+ monto + ' por mes')
+
+    } else if (cuotas === 24) {
+        calcularInteres(2)
+        alert('El interés en 24 cuotas le queda en : $ '+ monto + ' por mes')
+    } else if (cuotas === 36) {
+        calcularInteres(2)
+        alert('El interés en 36 cuotas le queda en : $ '+ monto + ' por mes')
+    } else {
+        alert("El numero seleccionado no es correcto")
+    }
+} else {
+    alert('La tarjeta elegida es AmericanExpress')
+    let cuotas = +prompt('En cuantas cuotas quiere operar? : 12 - 24 -36 ')
+    if (cuotas ===12){
+        calcularInteres(3)
+     alert('El interés en 12 cuotas le queda en : $'+ monto + ' por mes')
+
+    } else if (cuotas === 24) {
+        calcularInteres(3)
+        alert('El interés en 24 cuotas le queda en : $ '+ monto + ' por mes')
+    } else if (cuotas === 36) {
+        calcularInteres(3)
+        alert('El interés en 36 cuotas le queda en : $ '+ monto + ' por mes')
+    } else {
+        alert("El numero seleccionado no es correcto")
     }
 }
-const tarjetaVisa = new Tarjeta("tarjetVisa",1,10,11,12) 
-const tarjetaAmerica = new Tarjeta("tarjetAmerica",22,15,18,20) 
-const tarjetaMastercard = new Tarjeta("tarjetMastercard",10,5,10,15) 
-const tarjetaCabal = new Tarjeta("tarjetCabal",5,12,18,25) 
+// FUNCION CALCULO
 
-const tarjetaDeseada = parseInt(prompt("Elije el numero de la tarjeta que deseas utilizar? 1.tarjetaVisa - 2.tarjetaAmerica - 3.tarjetaMastercard - 4.tarjetaCabal")) 
+function calcularInteres (){
+   let cuotas = 0;
+    switch (eleccion) {
+        case 1:
+              alert("El interes con esta tarjeta es del 10 %")
+              monto = Math.round(monto*10)/100;
+              
 
-let eligioTarjeta = false
-
-let infoTarjetaElegida
-
-while(eligioTarjeta === false){
-    if(tarjetaDeseada === 1){
-        eligioTarjeta = true;
-        infoTarjetaElegida = tarjetaVisa
+            break;
+        case 2:
+            alert("El interes con esta tarjeta es del 20 %")
+            monto = Math.round(monto*20)/100;
+            
+            break;
+         case 3:
+            alert("El interes con esta tarjeta es del 30 %")
+            monto = Math.round(monto*30)/100;
+            
+            break;
+    
+        default: alert('Opción Incorrecta');
+            break;
     }
-   else if(tarjetaDeseada === 2){
-        eligioTarjeta = true;
-        infoTarjetaElegida = tarjetaAmerica
-    }
-    else if(tarjetaDeseada === 3){
-        eligioTarjeta = true;
-        infoTarjetaElegida = tarjetaMastercard
-    }
-    else if(tarjetaDeseada === 4){
-        eligioTarjeta = true;
-        infoTarjetaElegida = tarjetaCabal
-    }
-    else (tarjetaDeseada = parseInt(prompt("Elije un numero de la tarjeta que deseas utilizar? 1.tarjetaVisa - 2.tarjetaAmerica - 3.tarjetaMastercard - 4.tarjetaCabal")) )
-}
-const montoSolicitado =parseInt(prompt("ingrese el monto que necesites"))
-
-
-
-const cuotaSolicitada =parseInt(prompt("ingrese las cuotas que necesites 1.12 - 2.24 - 3.36"))
-
-let eligioCuotas = false
-
-while(eligioCuotas === false){
-    if(cuotaSolicitada === 12){
-        eligioCuotas = true;
-        
-    }
-   else if(cuotaSolicitada === 24){
-        eligioTarjeta = true;
-        
-    }
-    else if(cuotaSolicitada === 36){
-        eligioTarjeta = true;
-    }
-else(cuotaSolicitada =parseInt(prompt("ingrese las cuotas que necesites 1.12 - 2.24 - 3.36")))
 }
 
-const cuota12 = calcularCuota(montoSolicitado,infoTarjetaElegida.tasa12,12)
-const cuota24 = calcularCuota(tarjetaDeseada,infoTarjetaElegida.tasa24,24)
-const cuota36 = calcularCuota(tarjetaDeseada,infoTarjetaElegida.tasa36,36)
-console. log (cuota12, cuota24, cuota36)
-
-function calcularCuota(monto,interes,meses) {
-    const cuota =((monto * (monto*interes))/100)/meses
-    return cuota
-}
-alert(`Las cuotas que te ofrece ${infoTarjetaElegida.nombre} son: 1.${cuota12} tasa a 12 cuotas - 2. ${cuota24}  tasa a 24 cuotas- 3. ${cuota36} tasa a 36 cuotas ` )
-console. log ("calcularCuota", infoTarjetaElegida, montoSolicitado)
