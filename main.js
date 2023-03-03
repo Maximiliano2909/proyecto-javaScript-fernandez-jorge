@@ -1,4 +1,3 @@
-
 let eleccion= +prompt("Elige una tarjeta : 1-SantanderVisa 2-MasterCard 3-AmericanExpress ")
 let monto = +prompt('Elige el monto de la compra')
 let SantanderVisa = 1
@@ -84,4 +83,3 @@ function calcularInteres (){
             break;
     }
 }
-
