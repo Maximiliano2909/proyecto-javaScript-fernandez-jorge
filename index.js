@@ -70,5 +70,5 @@ function calcularCuota(monto,interes,meses) {
     const cuota =((monto * (monto*interes))/100)/meses
     return cuota
 }
-//alert(`Las cuotas que te ofrece ${infoTarjetaElegida.nombre} son: 1. 12 cuotas con un interes del 10% - 2. 24 cuotas con un interes del 11% - 3. 36 cuotas con un interes del 12%` )
-console. log ("infoTarjetaElegida", infoTarjetaElegida, cuotaSolicitada)
+alert(`Las cuotas que te ofrece ${infoTarjetaElegida.nombre} son: 1.${cuota12} tasa a 12 cuotas - 2. ${cuota24}  tasa a 24 cuotas- 3. ${cuota36} tasa a 36 cuotas ` )
+console. log ("calcularCuota", infoTarjetaElegida, montoSolicitado)
